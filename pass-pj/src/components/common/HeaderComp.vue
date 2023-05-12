@@ -10,23 +10,11 @@
             <img src="@/assets/img/trip-logo.png" alt="" width="130px" />
           </router-link>
 
-          <div
-            class="collapse navbar-collapse"
-            style="font-weight: bold"
-            id="navbarSupportedContent"
-          >
+          <div class="collapse navbar-collapse" style="font-weight: bold" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-lg-0">
               <li class="nav-item d-flex">
-                <a class="nav-link" aria-current="page" href="${root}/board/attraction"
-                  >전국관광지 정보</a
-                >
-                <router-link
-                  :to="{ name: 'information', query: { pgno: 1 } }"
-                  class="nav-link information-page"
-                  aria-current="page"
-                  href="#"
-                  >공지사항</router-link
-                >
+                <a class="nav-link" aria-current="page" href="${root}/board/attraction">전국관광지 정보</a>
+                <router-link :to="{ name: 'information' }" class="nav-link information-page" aria-current="page" href="#">공지사항</router-link>
               </li>
             </ul>
 
