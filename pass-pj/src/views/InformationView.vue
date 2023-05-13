@@ -60,7 +60,7 @@
           <div class="post-nav">
             <ul class="pagination justify-content-center">
               <li class="page-item" data-pg="1">
-                <a href="#" class="page-link">최신</a>
+                <a href="#" class="page-link" @click="$router.push('/information?pgno=1')">최신</a>
               </li>
               <li class="page-item" data-pg="currentPage">
                 <a href="#" class="page-link">이전</a>
@@ -72,7 +72,7 @@
                 <a href="#" class="page-link">다음</a>
               </li>
               <li class="page-item" data-pg="pageCount">
-                <a href="#" class="page-link">마지막</a>
+                <a href="#" class="page-link" @click="$router.push(`/information?pgno=${pageCount}`)">마지막</a>
               </li>
             </ul>
           </div>
