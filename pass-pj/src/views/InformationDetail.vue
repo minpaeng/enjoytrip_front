@@ -30,25 +30,32 @@
           <!-- </c:if> -->
         </div>
       </div>
+      <comment-comp :comments="comments"></comment-comp>
     </div>
   </div>
 </template>
 
 <script>
 import http from "@/util/http-common";
+import CommentComp from "@/components/comment/CommentComp.vue";
 
 export default {
   name: "InformationDetail",
-  components: {},
+  components: {
+    CommentComp,
+  },
   data() {
     return {
       id: null,
       post: {},
+      commentPageCount: null,
+      comments: {},
     };
   },
   created() {
     this.id = this.$route.params.no;
     this.getInfoPost();
+    this.getInfoComments();
   },
   methods: {
     async getInfoPost() {
@@ -66,7 +73,18 @@ export default {
         alert("삭제 완료");
         this.$router.push("/information");
       } catch (err) {
-        console.log(`공지사항 게시글 삭제 실패" ${err}`);
+        console.log(`공지사항 게시글 삭제 실패: ${err}`);
+      }
+    },
+
+    async getInfoComments() {
+      try {
+        console.log(`/information/${this.id}/comment`);
+        let response = await http.get(`/information/${this.id}/comment`);
+        this.commentPageCount = response.data.pageCount;
+        this.comments = response.data.list;
+      } catch (err) {
+        console.log(`댓글 목록 조회 실패: ${err}`);
       }
     },
 

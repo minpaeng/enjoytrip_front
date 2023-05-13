@@ -45,13 +45,13 @@
               </thead>
               <tbody>
                 <tr v-for="post in list" :key="post.id">
-                  <th>{{ post.id }}</th>
-                  <th>
+                  <td>{{ post.id }}</td>
+                  <td>
                     <router-link :to="{ name: 'informationDetail', params: { no: post.id } }">{{ post.title }}</router-link>
-                  </th>
-                  <th>{{ post.userId }}</th>
-                  <th>{{ post.registerDate }}</th>
-                  <th>{{ post.hit }}</th>
+                  </td>
+                  <td>{{ post.userId }}</td>
+                  <td>{{ post.registerDate }}</td>
+                  <td>{{ post.hit }}</td>
                 </tr>
               </tbody>
             </table>
