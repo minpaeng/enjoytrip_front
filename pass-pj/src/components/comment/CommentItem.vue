@@ -4,7 +4,7 @@
       <div class="col-1">{{ comment.userId }}</div>
       <div class="col-8">{{ comment.content }}</div>
       <div class="col-2">{{ comment.registerDate }}</div>
-      <button class="col-1" @click="deleteComment">삭제</button>
+      <button class="col-1 btn btn-outline-dark btn-sm" @click="deleteComment">삭제</button>
     </div>
   </li>
 </template>
