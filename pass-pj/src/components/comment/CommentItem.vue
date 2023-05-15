@@ -4,12 +4,14 @@
       <div class="col-1">{{ comment.userId }}</div>
       <div class="col-8">{{ comment.content }}</div>
       <div class="col-2">{{ comment.registerDate }}</div>
-      <a class="col-1" href="${root}/information/${post.id}/comment/${comment.id}">삭제</a>
+      <button class="col-1" @click="deleteComment">삭제</button>
     </div>
   </li>
 </template>
 
 <script>
+import http from "@/util/http-common";
+
 export default {
   name: "CommentItem",
   components: {},
@@ -20,7 +22,17 @@ export default {
     return {};
   },
   created() {},
-  methods: {},
+  methods: {
+    async deleteComment() {
+      try {
+        console.log(this.comment.id);
+        await http.delete(`/information/comment/${this.comment.id}`);
+        window.location.reload();
+      } catch (err) {
+        console.log(`댓글 삭제 오류: ${err}`);
+      }
+    },
+  },
 };
 </script>
 
